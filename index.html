@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -105,6 +105,19 @@
             font-size: 1.8rem; color: #d63384;
         }
 
+        /* Poem Style */
+        .poem-box {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 15px;
+            border-radius: 15px;
+            text-align: center;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            color: #d63384;
+            line-height: 1.4;
+            margin-top: 10px;
+        }
+
         /* GIF Styling */
         .gif-container {
             width: 100%;
@@ -137,9 +150,11 @@
 </head>
 <body>
 
-       <audio id="bgMusic" loop>
+    <!-- Background Music -->
+    <audio id="bgMusic" loop>
         <source src="https://cdn.pixabay.com/download/audio/2022/10/18/audio_31c2730e64.mp3?filename=romantic-piano-124978.mp3" type="audio/mp3">
     </audio>
+
     <div class="moon-glow">🌙</div>
     <div class="falling-layer" id="rain"></div>
 
@@ -151,7 +166,7 @@
         </div>
         
         <button class="heart-btn" onclick="openLetter()">
-            Tap for My Janudi... ❤️
+            Tap for My Janudi... ❤️ 🎵
         </button>
     </div>
 
@@ -190,9 +205,10 @@
                 "Ya Allah, please keep my <span class="highlight-name">Kuchupuchu</span> smiling. Protect her innocence, guide her heart, and keep her safe from every tear. Let me always be the one who wipes her worries away." 🤲✨
             </div>
 
-            <!-- NEW PARAGRAPH ADDED HERE -->
+            <!-- CUSTOM TEXT SECTION -->
             <p class="paragraph">
-                I know I am not perfect, and I might not always have the right words... ,but I say to you this: I will always try my hardest to make you happy. You are my <strong>babyy sa kuchupuchu</strong>, and seeing you smile is my only goal. I want to shower you with love and kisses every single day. daddy loves you so much💋💋💋💋
+                I know I am not perfect, and I might not always have the right words... but I promise you this: I will always try my hardest to make you happy. You are my <strong>babyy sa kuchupuchu</strong>, and seeing you smile is my only goal. I want to shower you with love and kisses every single day. <br><br>
+                <strong>Daddy loves you so much!</strong> 💋💋💋💋
             </p>
 
             <p class="paragraph">
@@ -205,22 +221,30 @@
             </div>
 
             <p class="paragraph">
-                Eat lots of chocolates 🍫, and  drninks faluda🤭🤭and stay happy  and time se khaa lo roz and tabiyat ka achese khyal rkho haan cutie 🤭 my  <span class="highlight-name">Sweety</span>, and remember—you are loved beyond measure.
+                Eat lots of chocolates 🍫, drink lots of <strong>Faluda</strong> 🤭🤭, and stay happy. Please time se khaa lo roz, and tabiyat ka achese khyal rkho haan cutie 🤭. You are my <span class="highlight-name">Sweety</span>, and remember—you are loved beyond measure.
             </p>
+
+            <!-- LYRICS SECTION -->
             <p class="paragraph">
-i have some lines for you from my deeply heart 🤭🤭
-            I never knew my heart could beat this fast,
-Like a beautiful spell that you have cast.
-Everything feels fresh, everything feels new,
-The moment my eyes found a home in you. 🙈✨
-Oh Janudi, my sweet Rasmalai,
-You are the only moon in my sky. 🌙
-I don’t need the world, I don’t need the view,
-I just need one smile... only from you. 🌹
-You are my Dua, my baby, my light,
-I’ll protect you through the day and the night.
-My Kuchupuchu, my heart is your throne,
-With you, my lovely janudi, I am never alone. ❤️💋  </p>
+                I wrote some lines for you from deep in my heart 🤭🤭:
+            </p>
+            
+            <div class="paragraph poem-box">
+                I never knew my heart could beat this fast,<br>
+                Like a beautiful spell that you have cast.<br>
+                Everything feels fresh, everything feels new,<br>
+                The moment my eyes found a home in you. 🙈✨<br><br>
+                
+                Oh Janudi, my sweet Rasmalai,<br>
+                You are the only moon in my sky. 🌙<br>
+                I don’t need the world, I don’t need the view,<br>
+                I just need one smile... only from you. 🌹<br><br>
+                
+                You are my Dua, my baby, my light,<br>
+                I’ll protect you through the day and the night.<br>
+                My Kuchupuchu, my heart is your throne,<br>
+                With you, my lovely Janudi, I am never alone. ❤️💋
+            </div>
 
             <!-- GIF 5: Kiss Sticker -->
             <div class="paragraph gif-container" style="max-width: 150px;">
@@ -233,7 +257,7 @@ With you, my lovely janudi, I am never alone. ❤️💋  </p>
         </div>
     </div>
 
-   <script>
+    <script>
         // Falling Elements
         const rainContainer = document.getElementById('rain');
         const emojis = ['🌹', '🍫', '✨', '🍬', '🤲', '💖', '🧸', '🌙', '💋'];
