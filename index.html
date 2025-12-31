@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Kuchupuchu ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@300;600&display=swap" rel="stylesheet">
+    <title>For My Janu ❤️</title>
+    <!-- Importing elegant fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #ff8fa3; /* Soft Pink */
-            --secondary-color: #ff4d6d; /* Deep Rose */
-            --gold: #ffb703; /* Elegant Gold */
-            --bg-gradient: linear-gradient(120deg, #fccb90 0%, #d57eeb 100%);
+            --primary: #ff8fab; /* Soft romantic pink */
+            --dark-text: #4a4a4a;
+            --gold: #d4af37;
+            --glass: rgba(255, 255, 255, 0.85);
         }
 
         * {
@@ -21,18 +22,18 @@
 
         body {
             height: 100vh;
-            width: 100vw;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            background-image: radial-gradient(circle at center, #ffdde1 0%, #ee9ca7 100%);
+            font-family: 'Outfit', sans-serif;
             overflow: hidden;
-            background-image: linear-gradient(to top, #fad0c4 0%, #ffd1ff 100%);
-            font-family: 'Nunito', sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             position: relative;
         }
 
-        /* --- Falling Elements Animation --- */
-        .falling-container {
+        /* --- Background Animation Layer --- */
+        .falling-layer {
             position: absolute;
             top: 0;
             left: 0;
@@ -42,241 +43,267 @@
             z-index: 1;
         }
 
-        .element {
+        .emoji-drop {
             position: absolute;
             top: -50px;
-            animation: fall linear infinite;
+            animation: drop linear infinite;
+        }
+
+        /* --- The Moon (Respectful Symbol) --- */
+        .moon-glow {
+            position: absolute;
+            top: 5%;
+            right: 10%;
+            font-size: 4rem;
+            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+            animation: sway 5s ease-in-out infinite alternate;
+            z-index: 2;
         }
 
         /* --- Intro Screen --- */
-        .intro-screen {
+        .intro-container {
             z-index: 100;
             text-align: center;
-            transition: opacity 1s ease-out;
+            transition: all 1s ease;
         }
 
-        .pulse-button {
-            background: radial-gradient(circle, var(--secondary-color) 0%, var(--primary-color) 100%);
-            border: 4px solid white;
-            padding: 25px 50px;
+        .heart-btn {
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+            border: none;
+            padding: 20px 45px;
             border-radius: 50px;
-            color: white;
-            font-family: 'Great Vibes', cursive;
-            font-size: 2rem;
+            color: #fff;
+            font-size: 1.5rem;
+            font-family: 'Dancing Script', cursive;
             cursor: pointer;
-            box-shadow: 0 0 20px rgba(255, 77, 109, 0.6);
-            animation: pulse 1.5s infinite;
-            position: relative;
-            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+            animation: heartbeat 2s infinite;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        .pulse-button::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(255,255,255,0.2);
-            transform: scale(0);
-            border-radius: 50px;
-            transition: transform 0.3s;
-        }
-
-        .pulse-button:active::after {
-            transform: scale(2);
-        }
-
-        /* --- Main Letter Card --- */
-        .letter-card {
+        /* --- The Main Letter Card --- */
+        .letter-container {
             position: relative;
             width: 90%;
-            max-width: 650px;
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 40px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-            z-index: 10;
-            display: none;
-            opacity: 0;
-            transform: scale(0.9);
-            border: 2px solid rgba(255,255,255,0.8);
+            max-width: 600px;
             max-height: 90vh;
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.9);
+            padding: 40px 30px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            display: none; /* Hidden initially */
+            opacity: 0;
+            transform: translateY(30px);
             overflow-y: auto;
+            z-index: 10;
         }
 
-        .card-header h1 {
-            font-family: 'Great Vibes', cursive;
-            color: var(--secondary-color);
-            font-size: 3.5rem;
+        .letter-header {
             text-align: center;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
         }
 
-        /* --- Text Animations --- */
-        .message-line {
-            opacity: 0; /* Hidden initially */
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-            color: #4a4a4a;
-            line-height: 1.6;
+        .letter-header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #d63384;
+            text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
+        }
+
+        .letter-body {
+            font-size: 1.05rem;
+            color: #555;
+            line-height: 1.8;
             text-align: justify;
         }
 
-        .message-line.visible {
+        .paragraph {
+            margin-bottom: 20px;
+            opacity: 0; /* Hidden for animation */
+            transform: translateY(15px);
+            transition: all 1s ease;
+        }
+
+        .paragraph.show {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .highlight {
-            color: var(--secondary-color);
-            font-weight: 700;
+        .highlight-name {
+            color: #d63384;
+            font-weight: 600;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
         }
 
-        .gold-text {
-            color: #d4af37;
-            font-weight: bold;
-        }
-
+        /* The Dua Section */
         .dua-box {
-            background-color: #fff0f3;
-            border-left: 5px solid var(--gold);
-            padding: 15px;
-            margin: 20px 0;
-            border-radius: 8px;
+            background-color: #fffaf0;
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 12px 12px 0;
             font-style: italic;
-            font-size: 1.1rem;
-            color: #555;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            color: #666;
+            position: relative;
+        }
+        
+        .dua-box::before {
+            content: '❝';
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 2rem;
+            color: var(--gold);
+            opacity: 0.3;
         }
 
         .signature {
             text-align: center;
-            margin-top: 30px;
-            font-family: 'Great Vibes', cursive;
-            font-size: 2.2rem;
-            color: var(--secondary-color);
+            margin-top: 40px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: #d63384;
         }
 
         /* --- Animations --- */
-        @keyframes fall {
-            0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+        @keyframes drop {
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+            20% { opacity: 1; }
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 109, 0.7); }
-            70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(255, 77, 109, 0); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 109, 0); }
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            15% { transform: scale(1.15); }
+            30% { transform: scale(1); }
+            45% { transform: scale(1.15); }
+            60% { transform: scale(1); }
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-thumb { background: var(--primary-color); border-radius: 10px; }
+        @keyframes sway {
+            from { transform: translateY(0px) rotate(-5deg); }
+            to { transform: translateY(10px) rotate(5deg); }
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: #ffb7b2; border-radius: 10px; }
     </style>
 </head>
 <body>
 
-    <!-- Falling Container -->
-    <div class="falling-container" id="fallingContainer"></div>
+    <!-- Floating Moon -->
+    <div class="moon-glow">🌙</div>
 
-    <!-- Intro Screen -->
-    <div class="intro-screen" id="introScreen">
-        <div style="margin-bottom: 20px; font-size: 5rem;">💌</div>
-        <button class="pulse-button" onclick="revealLetter()">
-            Click for My Janudi...
+    <!-- Rain of Love -->
+    <div class="falling-layer" id="rain"></div>
+
+    <!-- Step 1: Intro -->
+    <div class="intro-container" id="intro">
+        <button class="heart-btn" onclick="openLetter()">
+            Click Me, Kuchupuchu... ❤️
         </button>
     </div>
 
-    <!-- The Letter -->
-    <div class="letter-card" id="letterCard">
-        <div class="card-header">
-            <h1>My Beautiful Janudi 🌹</h1>
+    <!-- Step 2: The Letter -->
+    <div class="letter-container" id="card">
+        <div class="letter-header">
+            <h1>My Janudi... 🌹</h1>
         </div>
         
-        <div id="messageContainer">
-            <!-- Content will be injected line by line via JS -->
-            <p class="message-line">My Dearest <strong>JANUDI </strong>,</p>
+        <div class="letter-body">
             
-            <p class="message-line">As the world turns a page on the calendar, my heart only turns towards you. You are my <strong>only one</strong>, the center of my universe.</p>
-            
-            <p class="message-line">I know that for your beautiful heart and your faith, this specific date isn't a traditional celebration. I admire that about you so much—how you hold onto your values with such grace. I respect your religion, your choices, and the purity of your soul more than words can say.</p>
-            
-            <p class="message-line">So, this isn't a "holiday wish." This is a moment of gratitude <strong>for us</strong>.</p>
-            
-            <div class="message-line dua-box">
-                "Ya Allah, please keep my <strong>Rasmalai</strong> safe, happy, and healthy. Protect her from every sadness, answer her silent prayers, and fill her life with Barakah and peace. Make her smile shine brighter every single day."
+            <p class="paragraph">
+                My sweetest <span class="highlight-name">janudi 🫠</span>, <br>
+                While the whole world is busy counting down seconds, I am sitting here counting the blessings I found in you. 🙈✨
+            </p>
+
+            <p class="paragraph">
+                I know today is just another date for you and me , and I respect your beautiful heart and your Iman more than anything. I never want you to change who you are for the world, because who you are is perfect to me. You are my <span class="highlight-name">Dudu</span>, my peace, and my home. 🏡❤️
+            </p>
+
+            <p class="paragraph">
+                So, I won’t wish you a "Happy New Year." Instead, I want to take this moment to make a promise and a prayer <strong>for us</strong>.
+            </p>
+
+            <div class="paragraph dua-box">
+                "Ya Allah, please keep my <span class="highlight-name">Janudi</span> smiling. Protect her innocence, guide her heart, and keep her safe from every tear. If she ever feels weak, let me be her strength. And if she ever feels alone, remind her that my heart beats only for her." 🤲✨
             </div>
 
-            <p class="message-line">You are my <strong>Dudu</strong>, my sweet <strong>Rasmalai</strong>, and my everything. I am the luckiest person alive to have you. Your presence is the biggest blessing I could ever ask for.</p>
-            
-            <p class="message-line">I promise to always respect you, care for you like a delicate flower, and love you endlessly.</p>
+            <p class="paragraph">
+                You know, sometimes I look at you and wonder what I did to deserve a soul as pure as yours. You are my <span class="highlight-name">Kuchupuchu</span>, my little baby, and I just want to wrap you in my arms and keep the world away. 🛡️💏
+            </p>
 
-            <p class="message-line">Here is to you, my <strong>Sweety</strong>, and to our beautiful bond.</p>
-        </div>
+            <p class="paragraph">
+                I don't need a celebration to tell you this, but I want you to know: I am here. I am staying. And I will always be the man who stands by your side, respecting your values and cherishing your love.
+            </p>
 
-        <div class="signature message-line">
-            Forever Yours,<br>
-            Your Janu ❤️
+            <p class="paragraph">
+                Eat lots of chocolates 🍫,drink faluda 🤭 stay happy my <span class="highlight-name">Sweety</span>, and remember—you are loved beyond measure.
+            </p>
+
+            <div class="paragraph signature">
+                Forever Your Janu 💋
+            </div>
         </div>
     </div>
 
     <script>
-        /* --- 1. Falling Animation Logic --- */
-        const container = document.getElementById('fallingContainer');
-        const items = ['🍫', '🌹', '🍬', '✨', '💖', '🧸', '🌺', '🌙']; // Moon added for respect
-        
-        function createFallingItem() {
-            const el = document.createElement('div');
-            el.classList.add('element');
-            el.innerText = items[Math.floor(Math.random() * items.length)];
-            
-            // Random positioning
-            el.style.left = Math.random() * 100 + 'vw';
-            el.style.fontSize = (Math.random() * 20 + 20) + 'px';
-            el.style.animationDuration = (Math.random() * 3 + 4) + 's'; // 4s to 7s
-            el.style.opacity = Math.random() * 0.5 + 0.5;
-            
-            container.appendChild(el);
+        // 1. Falling Animation (Chocolates, Flowers, Prayers)
+        const rainContainer = document.getElementById('rain');
+        const emojis = ['🌹', '🍫', '✨', '🍬', '🤲', '💖', '🧸', '🌺'];
 
-            // Clean up DOM
-            setTimeout(() => { el.remove(); }, 7000);
+        function createDrop() {
+            const drop = document.createElement('div');
+            drop.classList.add('emoji-drop');
+            drop.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            drop.style.left = Math.random() * 100 + 'vw';
+            drop.style.animationDuration = Math.random() * 3 + 4 + 's'; // 4s - 7s
+            drop.style.fontSize = Math.random() * 1.5 + 1.2 + 'rem';
+            
+            rainContainer.appendChild(drop);
+
+            setTimeout(() => {
+                drop.remove();
+            }, 7000);
         }
 
-        // Start gentle rain
-        setInterval(createFallingItem, 300);
+        setInterval(createDrop, 200);
 
+        // 2. Open Letter Logic
+        function openLetter() {
+            const intro = document.getElementById('intro');
+            const card = document.getElementById('card');
+            const paragraphs = document.querySelectorAll('.paragraph');
 
-        /* --- 2. Reveal Logic --- */
-        function revealLetter() {
-            const intro = document.getElementById('introScreen');
-            const card = document.getElementById('letterCard');
-            const lines = document.querySelectorAll('.message-line');
-
-            // Hide Intro
+            // Fade out button
             intro.style.opacity = '0';
+            intro.style.transform = 'scale(0.8)';
+            
             setTimeout(() => {
                 intro.style.display = 'none';
-                
-                // Show Card
                 card.style.display = 'block';
-                // Slight delay to allow display:block to render before opacity transition
+                
+                // Small delay for CSS display to register
                 setTimeout(() => {
                     card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
+                    card.style.transform = 'translateY(0)';
                     
-                    // Trigger Text Animation Line by Line
-                    lines.forEach((line, index) => {
+                    // Reveal text one by one (Human reading speed)
+                    paragraphs.forEach((p, index) => {
                         setTimeout(() => {
-                            line.classList.add('visible');
-                        }, index * 800); // 800ms delay between each paragraph
+                            p.classList.add('show');
+                        }, index * 1200); // 1.2 seconds per paragraph
                     });
 
                 }, 100);
-
-                // Increase falling items for effect
-                setInterval(createFallingItem, 100);
+                
+                // Intensify rain
+                setInterval(createDrop, 100);
 
             }, 800);
         }
