@@ -105,10 +105,10 @@
             font-size: 1.8rem; color: #d63384;
         }
 
-        /* GIF Styling - Makes them look neat */
+        /* GIF Styling */
         .gif-container {
             width: 100%;
-            max-width: 180px; /* Perfect size for mobile */
+            max-width: 180px;
             margin: 10px auto;
             border-radius: 15px;
             overflow: hidden;
@@ -116,7 +116,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        /* Intro GIF specific size */
         .intro-gif { max-width: 200px; }
 
         @keyframes drop {
@@ -143,7 +142,7 @@
 
     <!-- Intro Screen -->
     <div class="intro-container" id="intro">
-        <!-- GIF 1: Bubu Dudu Waiting (Intro) -->
+        <!-- GIF 1: Bubu Dudu Waiting -->
         <div class="gif-container intro-gif">
             <div class="tenor-gif-embed" data-postid="7688468466204916573" data-share-method="host" data-aspect-ratio="1.05882" data-width="100%"><a href="https://tenor.com/view/bubu-dudu-sseeyall-gif-7688468466204916573">Bubu Dudu Sseeyall Sticker</a></div>
         </div>
@@ -161,7 +160,7 @@
         
         <div class="letter-body">
             
-            <!-- GIF 2: Twitter Kiwi (Cute start) -->
+            <!-- GIF 2: Twitter Kiwi -->
             <div class="paragraph gif-container">
                 <div class="tenor-gif-embed" data-postid="4970489553519948549" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/twitter-kiwi-bubu-dudu-gif-4970489553519948549">Twitter Kiwi GIF</a></div>
             </div>
@@ -175,7 +174,7 @@
                 I know today is just a date on the calendar for you, and I respect your beautiful heart and your Iman so much. I never want you to change who you are. You are my <span class="highlight-name">Dudu</span>, my peace, and my home. 🏡❤️
             </p>
 
-            <!-- GIF 3: Love Cat Kiss (Sweet moment) -->
+            <!-- GIF 3: Love Cat Kiss -->
             <div class="paragraph gif-container" style="max-width: 140px;">
                 <div class="tenor-gif-embed" data-postid="14779074299479940545" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/love-cat-kiss-cat-love-you-heart-i-love-you-gif-14779074299479940545">Love Cat Kiss GIF</a></div>
             </div>
@@ -188,11 +187,16 @@
                 "Ya Allah, please keep my <span class="highlight-name">Kuchupuchu</span> smiling. Protect her innocence, guide her heart, and keep her safe from every tear. Let me always be the one who wipes her worries away." 🤲✨
             </div>
 
+            <!-- NEW PARAGRAPH ADDED HERE -->
             <p class="paragraph">
-                Sometimes I just want to pull you close, wrap you in my arms, and keep the whole world away. You are my baby, and I promise to be the man who always stands by your side, respecting you and loving you endlessly. 🛡️💏
+                I know I am not perfect, and I might not always have the right words... but I promise you this: I will always try my hardest to make you happy. You are my <strong>baby</strong>, and seeing you smile is my only goal. I want to shower you with love and kisses every single day. 💋💋💋💋
             </p>
 
-            <!-- GIF 4: Passionate Kiss (Deep emotion/Protection) -->
+            <p class="paragraph">
+                Sometimes I just want to pull you close, wrap you in my arms, and keep the whole world away. You are my world, and I promise to be the man who stands by your side, respecting you and loving you endlessly. 🛡️💏
+            </p>
+
+            <!-- GIF 4: Passionate Kiss -->
             <div class="paragraph gif-container">
                 <div class="tenor-gif-embed" data-postid="2177079769624186264" data-share-method="host" data-aspect-ratio="0.7625" data-width="100%"><a href="https://tenor.com/view/passionate-kiss-kiss-deep-kiss-makeout-kissing-couple-gif-2177079769624186264">Passionate Kiss Deep Kiss GIF</a></div>
             </div>
@@ -201,7 +205,7 @@
                 Eat lots of chocolates 🍫, stay happy my <span class="highlight-name">Sweety</span>, and remember—you are loved beyond measure.
             </p>
 
-            <!-- GIF 5: Kiss Sticker (Signature) -->
+            <!-- GIF 5: Kiss Sticker -->
             <div class="paragraph gif-container" style="max-width: 150px;">
                 <div class="tenor-gif-embed" data-postid="13874597465072197683" data-share-method="host" data-aspect-ratio="1.00855" data-width="100%"><a href="https://tenor.com/view/kiss-gif-13874597465072197683">Kiss Sticker</a></div>
             </div>
@@ -215,7 +219,7 @@
     <script>
         // Falling Elements
         const rainContainer = document.getElementById('rain');
-        const emojis = ['🌹', '🍫', '✨', '🍬', '🤲', '💖', '🧸', '🌙'];
+        const emojis = ['🌹', '🍫', '✨', '🍬', '🤲', '💖', '🧸', '🌙', '💋'];
 
         function createDrop() {
             const drop = document.createElement('div');
@@ -250,8 +254,6 @@
                     paragraphs.forEach((p, index) => {
                         setTimeout(() => {
                             p.classList.add('show');
-                            // If p contains a script tag (Tenor), sometimes re-triggering might be needed, 
-                            // but usually Tenor script handles it automatically on DOM load.
                         }, index * 1000); 
                     });
                 }, 100);
