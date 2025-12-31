@@ -233,7 +233,7 @@ With you, my lovely janudi, I am never alone. ❤️💋  </p>
         </div>
     </div>
 
-    <script>
+   <script>
         // Falling Elements
         const rainContainer = document.getElementById('rain');
         const emojis = ['🌹', '🍫', '✨', '🍬', '🤲', '💖', '🧸', '🌙', '💋'];
@@ -250,17 +250,20 @@ With you, my lovely janudi, I am never alone. ❤️💋  </p>
         }
         setInterval(createDrop, 300);
 
-         audio.volume = 0.6; // Set volume to 60%
-            audio.play().catch(error => {
-                console.log("Audio play failed (browser might require interaction):", error);
-            });
-        
-        // Reveal Logic
+        // Reveal Logic + Music Play
         function openLetter() {
             const intro = document.getElementById('intro');
             const card = document.getElementById('card');
             const paragraphs = document.querySelectorAll('.paragraph');
+            const audio = document.getElementById('bgMusic');
 
+            // Play Music
+            audio.volume = 0.6; // Set volume to 60%
+            audio.play().catch(error => {
+                console.log("Audio play failed (browser might require interaction):", error);
+            });
+
+            // Hide Intro
             intro.style.opacity = '0';
             intro.style.transform = 'scale(0.8)';
             
