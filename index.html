@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -137,6 +137,9 @@
 </head>
 <body>
 
+       <audio id="bgMusic" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/10/18/audio_31c2730e64.mp3?filename=romantic-piano-124978.mp3" type="audio/mp3">
+    </audio>
     <div class="moon-glow">🌙</div>
     <div class="falling-layer" id="rain"></div>
 
@@ -189,7 +192,7 @@
 
             <!-- NEW PARAGRAPH ADDED HERE -->
             <p class="paragraph">
-                I know I am not perfect, and I might not always have the right words... but I promise you this: I will always try my hardest to make you happy. You are my <strong>baby</strong>, and seeing you smile is my only goal. I want to shower you with love and kisses every single day. 💋💋💋💋
+                I know I am not perfect, and I might not always have the right words... ,but I say to you this: I will always try my hardest to make you happy. You are my <strong>babyy sa kuchupuchu</strong>, and seeing you smile is my only goal. I want to shower you with love and kisses every single day. daddy loves you so much💋💋💋💋
             </p>
 
             <p class="paragraph">
@@ -202,8 +205,22 @@
             </div>
 
             <p class="paragraph">
-                Eat lots of chocolates 🍫, stay happy my <span class="highlight-name">Sweety</span>, and remember—you are loved beyond measure.
+                Eat lots of chocolates 🍫, and  drninks faluda🤭🤭and stay happy  and time se khaa lo roz and tabiyat ka achese khyal rkho haan cutie 🤭 my  <span class="highlight-name">Sweety</span>, and remember—you are loved beyond measure.
             </p>
+            <p class="paragraph">
+i have some lines for you from my deeply heart 🤭🤭
+            I never knew my heart could beat this fast,
+Like a beautiful spell that you have cast.
+Everything feels fresh, everything feels new,
+The moment my eyes found a home in you. 🙈✨
+Oh Janudi, my sweet Rasmalai,
+You are the only moon in my sky. 🌙
+I don’t need the world, I don’t need the view,
+I just need one smile... only from you. 🌹
+You are my Dua, my baby, my light,
+I’ll protect you through the day and the night.
+My Kuchupuchu, my heart is your throne,
+With you, my lovely janudi, I am never alone. ❤️💋  </p>
 
             <!-- GIF 5: Kiss Sticker -->
             <div class="paragraph gif-container" style="max-width: 150px;">
@@ -233,6 +250,11 @@
         }
         setInterval(createDrop, 300);
 
+         audio.volume = 0.6; // Set volume to 60%
+            audio.play().catch(error => {
+                console.log("Audio play failed (browser might require interaction):", error);
+            });
+        
         // Reveal Logic
         function openLetter() {
             const intro = document.getElementById('intro');
