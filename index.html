@@ -4,21 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For My Janu ❤️</title>
-    <!-- Importing elegant fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Outfit:wght@300;500&display=swap" rel="stylesheet">
+    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
     <style>
         :root {
-            --primary: #ff8fab; /* Soft romantic pink */
-            --dark-text: #4a4a4a;
+            --primary: #ff8fab; 
             --gold: #d4af37;
-            --glass: rgba(255, 255, 255, 0.85);
+            --glass: rgba(255, 255, 255, 0.90);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             height: 100vh;
@@ -32,184 +27,133 @@
             position: relative;
         }
 
-        /* --- Background Animation Layer --- */
+        /* Falling Animation Layer */
         .falling-layer {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none; z-index: 1;
         }
-
         .emoji-drop {
-            position: absolute;
-            top: -50px;
+            position: absolute; top: -50px;
             animation: drop linear infinite;
         }
 
-        /* --- The Moon (Respectful Symbol) --- */
+        /* Moon (Respectful) */
         .moon-glow {
-            position: absolute;
-            top: 5%;
-            right: 10%;
-            font-size: 4rem;
-            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+            position: absolute; top: 5%; right: 10%;
+            font-size: 3.5rem;
+            filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.6));
             animation: sway 5s ease-in-out infinite alternate;
             z-index: 2;
         }
 
-        /* --- Intro Screen --- */
+        /* Intro Section */
         .intro-container {
-            z-index: 100;
-            text-align: center;
-            transition: all 1s ease;
+            z-index: 100; text-align: center;
+            transition: all 0.8s ease;
+            display: flex; flex-direction: column; align-items: center; gap: 20px;
         }
 
         .heart-btn {
-            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
-            border: none;
-            padding: 20px 45px;
-            border-radius: 50px;
-            color: #fff;
-            font-size: 1.5rem;
-            font-family: 'Dancing Script', cursive;
-            cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+            background: linear-gradient(45deg, #ff9a9e 0%, #fecfef 100%);
+            border: none; padding: 18px 40px; border-radius: 50px;
+            color: #fff; font-size: 1.4rem; font-family: 'Dancing Script', cursive;
+            cursor: pointer; box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
             animation: heartbeat 2s infinite;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        /* --- The Main Letter Card --- */
+        /* Letter Card */
         .letter-container {
-            position: relative;
-            width: 90%;
-            max-width: 600px;
-            max-height: 90vh;
+            position: relative; width: 90%; max-width: 550px; max-height: 92vh;
             background: var(--glass);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(10px);
             border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.9);
-            padding: 40px 30px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-            display: none; /* Hidden initially */
-            opacity: 0;
+            padding: 30px 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+            display: none; opacity: 0;
             transform: translateY(30px);
-            overflow-y: auto;
-            z-index: 10;
-        }
-
-        .letter-header {
-            text-align: center;
-            margin-bottom: 25px;
+            overflow-y: auto; z-index: 10;
         }
 
         .letter-header h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.8rem;
-            color: #d63384;
-            text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
-        }
-
-        .letter-body {
-            font-size: 1.05rem;
-            color: #555;
-            line-height: 1.8;
-            text-align: justify;
+            font-family: 'Dancing Script', cursive; font-size: 2.5rem;
+            color: #d63384; text-align: center; margin-bottom: 15px;
         }
 
         .paragraph {
-            margin-bottom: 20px;
-            opacity: 0; /* Hidden for animation */
-            transform: translateY(15px);
-            transition: all 1s ease;
+            margin-bottom: 15px; opacity: 0; transform: translateY(15px);
+            transition: all 1s ease; font-size: 1rem; color: #555; line-height: 1.6;
+            text-align: justify;
         }
 
-        .paragraph.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
+        .paragraph.show { opacity: 1; transform: translateY(0); }
 
         .highlight-name {
-            color: #d63384;
-            font-weight: 600;
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.4rem;
+            color: #d63384; font-weight: 600; font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
         }
 
-        /* The Dua Section */
+        /* Dua Box */
         .dua-box {
-            background-color: #fffaf0;
-            border-left: 4px solid var(--gold);
-            padding: 20px;
-            margin: 25px 0;
-            border-radius: 0 12px 12px 0;
-            font-style: italic;
-            color: #666;
-            position: relative;
-        }
-        
-        .dua-box::before {
-            content: '❝';
-            position: absolute;
-            top: 5px;
-            left: 10px;
-            font-size: 2rem;
-            color: var(--gold);
-            opacity: 0.3;
+            background-color: #fffaf0; border-left: 4px solid var(--gold);
+            padding: 15px; border-radius: 0 10px 10px 0;
+            font-style: italic; color: #666; font-size: 0.95rem;
         }
 
         .signature {
-            text-align: center;
-            margin-top: 40px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 2rem;
-            color: #d63384;
+            text-align: center; margin-top: 30px; font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem; color: #d63384;
         }
 
-        /* --- Animations --- */
+        /* GIF Styling - Makes them look neat */
+        .gif-container {
+            width: 100%;
+            max-width: 180px; /* Perfect size for mobile */
+            margin: 10px auto;
+            border-radius: 15px;
+            overflow: hidden;
+            display: block;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Intro GIF specific size */
+        .intro-gif { max-width: 200px; }
+
         @keyframes drop {
             0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
             20% { opacity: 1; }
             100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
         }
-
         @keyframes heartbeat {
-            0% { transform: scale(1); }
-            15% { transform: scale(1.15); }
-            30% { transform: scale(1); }
-            45% { transform: scale(1.15); }
-            60% { transform: scale(1); }
+            0% { transform: scale(1); } 15% { transform: scale(1.1); } 30% { transform: scale(1); }
+            45% { transform: scale(1.1); } 60% { transform: scale(1); }
         }
-
         @keyframes sway {
             from { transform: translateY(0px) rotate(-5deg); }
             to { transform: translateY(10px) rotate(5deg); }
         }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-thumb { background: #ffb7b2; border-radius: 10px; }
     </style>
 </head>
 <body>
 
-    <!-- Floating Moon -->
     <div class="moon-glow">🌙</div>
-
-    <!-- Rain of Love -->
     <div class="falling-layer" id="rain"></div>
 
-    <!-- Step 1: Intro -->
+    <!-- Intro Screen -->
     <div class="intro-container" id="intro">
+        <!-- GIF 1: Bubu Dudu Waiting (Intro) -->
+        <div class="gif-container intro-gif">
+            <div class="tenor-gif-embed" data-postid="7688468466204916573" data-share-method="host" data-aspect-ratio="1.05882" data-width="100%"><a href="https://tenor.com/view/bubu-dudu-sseeyall-gif-7688468466204916573">Bubu Dudu Sseeyall Sticker</a></div>
+        </div>
+        
         <button class="heart-btn" onclick="openLetter()">
-            Click Me, Kuchupuchu... ❤️
+            Tap for My Janudi... ❤️
         </button>
     </div>
 
-    <!-- Step 2: The Letter -->
+    <!-- Letter Card -->
     <div class="letter-container" id="card">
         <div class="letter-header">
             <h1>My Janudi... 🌹</h1>
@@ -217,34 +161,50 @@
         
         <div class="letter-body">
             
-            <p class="paragraph">
-                My sweetest <span class="highlight-name">Rasmalai</span>, <br>
-                While the whole world is busy counting down seconds, I am sitting here counting the blessings I found in you. 🙈✨
-            </p>
-
-            <p class="paragraph">
-                I know today is just another date for you, and I respect your beautiful heart and your Iman more than anything. I never want you to change who you are for the world, because who you are is perfect to me. You are my <span class="highlight-name">Dudu</span>, my peace, and my home. 🏡❤️
-            </p>
-
-            <p class="paragraph">
-                So, I won’t wish you a "Happy New Year." Instead, I want to take this moment to make a promise and a prayer <strong>for us</strong>.
-            </p>
-
-            <div class="paragraph dua-box">
-                "Ya Allah, please keep my <span class="highlight-name">Janudi</span> smiling. Protect her innocence, guide her heart, and keep her safe from every tear. If she ever feels weak, let me be her strength. And if she ever feels alone, remind her that my heart beats only for her." 🤲✨
+            <!-- GIF 2: Twitter Kiwi (Cute start) -->
+            <div class="paragraph gif-container">
+                <div class="tenor-gif-embed" data-postid="4970489553519948549" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/twitter-kiwi-bubu-dudu-gif-4970489553519948549">Twitter Kiwi GIF</a></div>
             </div>
 
             <p class="paragraph">
-                You know, sometimes I look at you and wonder what I did to deserve a soul as pure as yours. You are my <span class="highlight-name">Kuchupuchu</span>, my little baby, and I just want to wrap you in my arms and keep the world away. 🛡️💏
+                My sweetest <span class="highlight-name">Rasmalai</span>, <br>
+                While the whole world is busy making noise, I am just sitting here quietly, thinking about how blessed I am to have you. 🙈✨
             </p>
 
             <p class="paragraph">
-                I don't need a celebration to tell you this, but I want you to know: I am here. I am staying. And I will always be the man who stands by your side, respecting your values and cherishing your love.
+                I know today is just a date on the calendar for you, and I respect your beautiful heart and your Iman so much. I never want you to change who you are. You are my <span class="highlight-name">Dudu</span>, my peace, and my home. 🏡❤️
             </p>
+
+            <!-- GIF 3: Love Cat Kiss (Sweet moment) -->
+            <div class="paragraph gif-container" style="max-width: 140px;">
+                <div class="tenor-gif-embed" data-postid="14779074299479940545" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/love-cat-kiss-cat-love-you-heart-i-love-you-gif-14779074299479940545">Love Cat Kiss GIF</a></div>
+            </div>
+
+            <p class="paragraph">
+                So, I won’t wish you a "Happy New Year." Instead, I am making a special Dua <strong>for us</strong>.
+            </p>
+
+            <div class="paragraph dua-box">
+                "Ya Allah, please keep my <span class="highlight-name">Kuchupuchu</span> smiling. Protect her innocence, guide her heart, and keep her safe from every tear. Let me always be the one who wipes her worries away." 🤲✨
+            </div>
+
+            <p class="paragraph">
+                Sometimes I just want to pull you close, wrap you in my arms, and keep the whole world away. You are my baby, and I promise to be the man who always stands by your side, respecting you and loving you endlessly. 🛡️💏
+            </p>
+
+            <!-- GIF 4: Passionate Kiss (Deep emotion/Protection) -->
+            <div class="paragraph gif-container">
+                <div class="tenor-gif-embed" data-postid="2177079769624186264" data-share-method="host" data-aspect-ratio="0.7625" data-width="100%"><a href="https://tenor.com/view/passionate-kiss-kiss-deep-kiss-makeout-kissing-couple-gif-2177079769624186264">Passionate Kiss Deep Kiss GIF</a></div>
+            </div>
 
             <p class="paragraph">
                 Eat lots of chocolates 🍫, stay happy my <span class="highlight-name">Sweety</span>, and remember—you are loved beyond measure.
             </p>
+
+            <!-- GIF 5: Kiss Sticker (Signature) -->
+            <div class="paragraph gif-container" style="max-width: 150px;">
+                <div class="tenor-gif-embed" data-postid="13874597465072197683" data-share-method="host" data-aspect-ratio="1.00855" data-width="100%"><a href="https://tenor.com/view/kiss-gif-13874597465072197683">Kiss Sticker</a></div>
+            </div>
 
             <div class="paragraph signature">
                 Forever Your Janu 💋
@@ -253,34 +213,28 @@
     </div>
 
     <script>
-        // 1. Falling Animation (Chocolates, Flowers, Prayers)
+        // Falling Elements
         const rainContainer = document.getElementById('rain');
-        const emojis = ['🌹', '🍫', '✨', '🍬', '🤲', '💖', '🧸', '🌺'];
+        const emojis = ['🌹', '🍫', '✨', '🍬', '🤲', '💖', '🧸', '🌙'];
 
         function createDrop() {
             const drop = document.createElement('div');
             drop.classList.add('emoji-drop');
             drop.innerText = emojis[Math.floor(Math.random() * emojis.length)];
             drop.style.left = Math.random() * 100 + 'vw';
-            drop.style.animationDuration = Math.random() * 3 + 4 + 's'; // 4s - 7s
+            drop.style.animationDuration = Math.random() * 3 + 4 + 's';
             drop.style.fontSize = Math.random() * 1.5 + 1.2 + 'rem';
-            
             rainContainer.appendChild(drop);
-
-            setTimeout(() => {
-                drop.remove();
-            }, 7000);
+            setTimeout(() => { drop.remove(); }, 7000);
         }
+        setInterval(createDrop, 300);
 
-        setInterval(createDrop, 200);
-
-        // 2. Open Letter Logic
+        // Reveal Logic
         function openLetter() {
             const intro = document.getElementById('intro');
             const card = document.getElementById('card');
             const paragraphs = document.querySelectorAll('.paragraph');
 
-            // Fade out button
             intro.style.opacity = '0';
             intro.style.transform = 'scale(0.8)';
             
@@ -288,23 +242,21 @@
                 intro.style.display = 'none';
                 card.style.display = 'block';
                 
-                // Small delay for CSS display to register
                 setTimeout(() => {
                     card.style.opacity = '1';
                     card.style.transform = 'translateY(0)';
                     
-                    // Reveal text one by one (Human reading speed)
+                    // Reveal paragraphs & GIFs one by one
                     paragraphs.forEach((p, index) => {
                         setTimeout(() => {
                             p.classList.add('show');
-                        }, index * 1200); // 1.2 seconds per paragraph
+                            // If p contains a script tag (Tenor), sometimes re-triggering might be needed, 
+                            // but usually Tenor script handles it automatically on DOM load.
+                        }, index * 1000); 
                     });
-
                 }, 100);
                 
-                // Intensify rain
-                setInterval(createDrop, 100);
-
+                setInterval(createDrop, 150); // Faster rain
             }, 800);
         }
     </script>
