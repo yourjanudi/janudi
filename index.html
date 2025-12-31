@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Janudi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ff9a9e;
+            --deep-pink: #ff6b6b;
+            --gold: #ffd700;
+            --cream: #fff5f5;
+            --text-color: #5d4037;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            background-color: #fad0c4;
+            background-image: linear-gradient(315deg, #fad0c4 0%, #ffd1ff 74%);
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Floating Elements Container */
+        .falling-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .emoji {
+            position: absolute;
+            top: -50px;
+            font-size: 24px;
+            animation: fall linear infinite;
+        }
+
+        /* Intro Screen */
+        .intro-screen {
+            position: absolute;
+            z-index: 10;
+            text-align: center;
+            transition: opacity 1s ease;
+        }
+
+        .heart-btn {
+            background: linear-gradient(to right, var(--primary-pink), var(--deep-pink));
+            border: none;
+            padding: 20px 40px;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.4);
+            font-family: 'Dancing Script', cursive;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        /* Main Letter Card */
+        .card-container {
+            position: relative;
+            width: 90%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            z-index: 5;
+            display: none; /* Hidden initially */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+            max-height: 85vh;
+            overflow-y: auto;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            color: var(--deep-pink);
+            font-size: 3rem;
+            text-shadow: 2px 2px 0px rgba(0,0,0,0.05);
+        }
+
+        .content {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        .highlight {
+            color: var(--deep-pink);
+            font-weight: bold;
+        }
+
+        .islamic-wish {
+            background-color: var(--cream);
+            border-left: 4px solid var(--gold);
+            padding: 15px;
+            margin: 20px 0;
+            font-style: italic;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .signature {
+            text-align: right;
+            margin-top: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: var(--deep-pink);
+        }
+
+        /* Animations */
+        @keyframes fall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Scrollbar for the card */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-pink);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background Rain Container -->
+    <div class="falling-container" id="fallingContainer"></div>
+
+    <!-- Intro Button -->
+    <div class="intro-screen" id="introScreen">
+        <button class="heart-btn" onclick="openLetter()">
+            For My Janudi 💌
+        </button>
+    </div>
+
+    <!-- The Letter -->
+    <div class="card-container" id="mainCard">
+        <div class="header">
+            <h1>Dearest Janudi 🌹</h1>
+        </div>
+        
+        <div class="content" id="typewriterText">
+            <!-- Text will be inserted via JS -->
+        </div>
+
+        <div class="signature">
+            - With Love, Your Janu ❤️
+        </div>
+    </div>
+
+    <script>
+        // Configuration for falling elements
+        const symbols = ['🌹', '🍫', '✨', '🍬', '🌺', '💖', '🤲'];
+        const container = document.getElementById('fallingContainer');
+
+        function createFallingElement() {
+            const el = document.createElement('div');
+            el.classList.add('emoji');
+            el.innerText = symbols[Math.floor(Math.random() * symbols.length)];
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.animationDuration = Math.random() * 3 + 4 + 's'; // 4-7 seconds
+            el.style.opacity = Math.random();
+            el.style.fontSize = Math.random() * 20 + 20 + 'px';
+            
+            container.appendChild(el);
+
+            // Remove element after animation to keep DOM clean
+            setTimeout(() => {
+                el.remove();
+            }, 7000);
+        }
+
+        // Start the rain
+        setInterval(createFallingElement, 300);
+
+        // The Letter Content
+        // This text is carefully crafted to respect her religion while showing love.
+        const message = `
+            My beautiful Janudi,<br><br>
+            
+            As the world watches the calendar change, my eyes are only looking at you. <br><br>
+
+            I know that in your beautiful faith, this specific date isn't a religious celebration, and I respect your beliefs and your heart more than anything in this world. I never want to wish you something that goes against who you are.<br><br>
+
+            So, instead of a "New Year" greeting, I am writing this to send you my <strong>Duas</strong> and my deepest gratitude.<br><br>
+
+            <div class="islamic-wish">
+                "May Allah (SWT) bless you with happiness that never ends, health that never fades, and a heart that is always at peace. May He protect you from every evil eye and guide you closer to your Deen and your dreams."
+            </div><br>
+
+            Even though I am not Muslim, I pray that the Almighty answers every silent prayer within your heart. You are a blessing to me, and I promise to respect you, cherish you, and stand by you through every season of life.<br><br>
+            
+            Here is to more laughter, more chocolates 🍫, and more beautiful moments together.<br><br>
+            
+            You are my queen, my best friend, and my soul.<br>
+        `;
+
+        // Typing Effect Function
+        let i = 0;
+        const speed = 30; // Typing speed
+        // We need a parser for HTML tags in typewriter effect
+        function typeWriter(text, elementId) {
+            const target = document.getElementById(elementId);
+            target.innerHTML = text; // Direct insert for complex HTML logic, or animate simple text
+            
+            // For a smooth fade-in effect of text chunks instead of character by character 
+            // (Better for HTML content like divs and br tags)
+            target.style.opacity = 0;
+            let opacity = 0;
+            const fade = setInterval(() => {
+                if (opacity >= 1) clearInterval(fade);
+                opacity += 0.05;
+                target.style.opacity = opacity;
+            }, 50);
+        }
+
+        function openLetter() {
+            const intro = document.getElementById('introScreen');
+            const card = document.getElementById('mainCard');
+            
+            // Fade out intro
+            intro.style.opacity = '0';
+            setTimeout(() => {
+                intro.style.display = 'none';
+                
+                // Show Card
+                card.style.display = 'block';
+                // Trigger reflow
+                card.offsetHeight; 
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+
+                // Start typing the message
+                typeWriter(message, 'typewriterText');
+                
+                // Increase rain intensity for celebration
+                setInterval(createFallingElement, 100); 
+
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
